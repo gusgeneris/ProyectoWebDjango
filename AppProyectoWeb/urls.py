@@ -1,5 +1,7 @@
 from django.urls import path
 from AppProyectoWeb import views
+from django.conf.urls.static import static
+from django.conf import settings  #para utilizar las variables url
 
 
 urlpatterns = [
@@ -9,3 +11,5 @@ urlpatterns = [
     path('blog/', views.blog, name='Blog'),
     path('contacto/', views.contacto, name='Contacto'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) #Se agrega un path con ruta statica definida en el archivo settings
