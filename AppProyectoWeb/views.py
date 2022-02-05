@@ -7,9 +7,6 @@ def home(request):
     
     return render (request,'home.html')
 
-def servicios(request):
-    
-    return render (request,'servicios.html')
 
 
 def tienda(request):
