@@ -2,4 +2,22 @@
 
 <h1 style="color:white">Contacto</h1>
 
+<form action="/contacto/" method="POST"> {% csrf_token %}
+
+    <div>
+        <label for="id_asunto" style="color: white"> Asunto:</label>{{formulario.asunto}}
+    </div>
+
+    <div>
+        <label for="id_email" style="color: white"> Email:</label>{{formulario.email}}
+    </div>
+
+    <div>
+        <label for="id_mensaje" style="color: white"> Mensaje:</label> {{formulario.mensaje}}
+    </div>
+
+    <input type="submit" value='Enviar'>
+
+</form>
+
 {% endblock %}

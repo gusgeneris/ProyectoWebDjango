@@ -126,3 +126,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/' #url publica para los archivos media
 MEDIA_ROOT = BASE_DIR / 'media' #lugar donde debe buscar los archivos
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "spoty571@gmail.com"
+EMAIL_HOST_PASSWORD = "Gusgeneris92"
