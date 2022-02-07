@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from django.conf.urls.static import static
-from django.conf import settings  #para utilizar las variables url
+from django.conf import settings  #para utilizar las variables url donde se almacenaran las imagenes
 
 
 urlpatterns = [
