@@ -10,11 +10,9 @@
             <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                 <h2 class="section-heading mb-4">
                     <span class="section-heading-lower">{{posteo.titulo}}</span>
-                    <!-- <p class="section-heading-upper">{{posteo.contenido}}</p> -->
+                    <span class="section-heading-upper">{{posteo.contenido}}</span>
+
                 </h2>
-                <a href="{% url blog '{{posteo.titulo}}' %}">Leer mas -></a>
-
-
                 <h6>
                     <span class="section-heading">Autor: {{posteo.autor}}</span>
                 </h6>
@@ -31,7 +29,9 @@
 <br> {% for categoria in posteo.categorias.all%}
 <!-- se recorre un segundo bucle ya que el primero devuelve un queryset(por tratarse de una relacion) -->
 <br>
-<a href="{% url 'Categoria' categoria.id %}">
+
+<a class="nav-link text-uppercase text-expanded" href="{% url 'Categoria'  categoria.id %}">
     <h6 style="color:#ffffff">{{categoria.nombre}}</h6>
-    <br> {% endfor %}</a>
+</a>
+<br> {% endfor %}
 <br>{% endfor %} {% endblock %}

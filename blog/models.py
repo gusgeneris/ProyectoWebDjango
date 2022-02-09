@@ -18,7 +18,7 @@ class Categoria(models.Model):
     
 class Posteo(models.Model):
     titulo = models.CharField(max_length= 50)
-    contenido = models.CharField(max_length= 50)
+    contenido = models.TextField()
     imagen=models.ImageField(upload_to='blog', null=True, blank=True)
     autor = models.ForeignKey(User, on_delete=models.CASCADE) #se crea una clave foranea de relacion entre los usuarios registrados para que puedan agregarce como autores
     categorias = models.ManyToManyField(Categoria) #se crea una relacion de muchos a muchos para que un post pueda tener varias categorias y biceversa

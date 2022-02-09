@@ -9,3 +9,11 @@ def blog(request):
     categorias = Categoria.objects.all()
     
     return render (request,'blog/blog.html',{'posteos':posteos})
+
+
+def categoria(request,categoria_id):
+    
+    categoria = Categoria.objects.get(id=categoria_id)
+    posteos = Posteo.objects.filter(categorias=categoria)
+    
+    return render (request,'blog/categoria.html',{'posteos':posteos, 'categoria':categoria})
