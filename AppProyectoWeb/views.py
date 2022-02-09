@@ -3,13 +3,13 @@ from django.shortcuts import render
 from AppProyectoWeb.forms import ContactoForm
 from django.core.mail import send_mail
 from django.conf import settings
+from AppServicios.models import Servicios
 
 # Create your views here.
 
 def home(request):
-    
+        
     return render (request,'home.html')
-
 
 
 def tienda(request):
@@ -37,6 +37,9 @@ def contacto(request):
         miFormularioContacto=ContactoForm()
     
     return render (request,'contacto.html',{'formulario':miFormularioContacto})
+
+def index(request):
+    return render(request,'index.html')
 
 
 

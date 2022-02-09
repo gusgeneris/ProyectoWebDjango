@@ -1,6 +1,7 @@
 from turtle import update
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -18,7 +19,9 @@ class Categoria(models.Model):
     
 class Posteo(models.Model):
     titulo = models.CharField(max_length= 50)
-    contenido = models.TextField()
+    contenido = RichTextField()
+    slug = models.CharField(max_length=190)
+    descripcion = models.CharField(max_length=255 ,blank=True, null=True)
     imagen=models.ImageField(upload_to='blog', null=True, blank=True)
     autor = models.ForeignKey(User, on_delete=models.CASCADE) #se crea una clave foranea de relacion entre los usuarios registrados para que puedan agregarce como autores
     categorias = models.ManyToManyField(Categoria) #se crea una relacion de muchos a muchos para que un post pueda tener varias categorias y biceversa

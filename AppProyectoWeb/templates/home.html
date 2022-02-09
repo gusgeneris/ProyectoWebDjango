@@ -1,39 +1,43 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<!-- Heading -->
-<section class="page-section clearfix">
-    <div class="container">
-        <div class="intro">
-            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="../static/img/principal.jpg" alt="">
-            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-                <h2 class="section-heading mb-4">
-                    <span class="section-heading-upper">Puntualidad</span>
-                    <span class="section-heading-lower">El mejor stock</span>
-                </h2>
-                <p class="mb-3">En la puertra de tu casa en menos de 48 h con el envío normal. En menos de 24 h con el envío express.
-                </p>
-
-            </div>
+<!-- Header Start -->
+<div class="container-fluid header bg-white p-0">
+    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+        <div class="col-md-6 p-5 mt-lg-5">
+            <h1 class="display-5 animated fadeIn mb-4"> Puntualidad en la <span class="text-primary">GESTIÓN DE PEDIDOS</span></h1>
+            <p class="animated fadeIn mb-4 pb-2">En la puertra de tu casa en menos de 48 h con el envío normal. En menos de 24 h con el envío express.</p>
+            <a href="" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Contactanos</a>
         </div>
-    </div>
-</section>
-
-
-
-<!-- Message -->
-<section class="page-section cta">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-9 mx-auto">
-                <div class="cta-inner text-center rounded">
-                    <h2 class="section-heading mb-4">
-                        <span class="section-heading-upper">Compromiso total</span>
-                        <span class="section-heading-lower">Garantizado</span>
-                    </h2>
-                    <p class="mb-0">Con más de 75 años de experiencia a nuestras espaldas, desde Gestión de Pedidos tenemos los conocimientos y herramientas necesarios para llevar cualquier objeto a la puerta de su casa con puntualidad y profesionalidad.</p>
+        <div class="col-md-6 animated fadeIn">
+            <div class="owl-carousel header-carousel">
+                <div class="owl-carousel-item">
+                    <img class="img-fluid" src="{% static '../static/img/principal.jpg' %}" alt="">
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+<!-- Header End -->
+
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                    <img class="img-fluid w-100" src="{% static 'img/transporte-pedidos.jpg' %}">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <h1 class="mb-4">Compromiso total</h1>
+                <h2 class="text-primary ">Garantizado</h2>
+                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                <p><i class="fa fa-check text-primary me-3"></i>Buena disponibilidad de horarios.</p>
+                <p><i class="fa fa-check text-primary me-3"></i>Atencion Personalizada.</p>
+                <p><i class="fa fa-check text-primary me-3"></i>Seguros en los envios incluido.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
 
 {% endblock %}

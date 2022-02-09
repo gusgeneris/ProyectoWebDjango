@@ -1,37 +1,45 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 
-<h1 style="color:#ffffff">Blog</h1>
-
-{% for posteo in posteos %}
-<section class="page-section clearfix">
-    <div class="container">
-        <div class="intro">
-            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{posteo.imagen.url}}" alt="" style='width:50%'>
-            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-                <h2 class="section-heading mb-4">
-                    <span class="section-heading-lower">{{posteo.titulo}}</span>
-                    <!-- <p class="section-heading-upper">{{posteo.contenido}}</p> -->
-                </h2>
-                <a href="{% url blog '{{posteo.titulo}}' %}">Leer mas -></a>
-
-
-                <h6>
-                    <span class="section-heading">Autor: {{posteo.autor}}</span>
-                </h6>
-                <h6>
-                    <span class="section-heading">Fecha: {{posteo.created}}</span>
-                </h6>
+<header class="masthead" style="background-image: url(../../../media/blog/blog-home.jpg)">
+    <div class="container position-relative px-14 px-lg-5">
+        <div class="row gx-5 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1 style="font-size: 180px; text-align:center; color:rgb(5, 128, 101)">Blog</h1>
+                </div>
             </div>
-
         </div>
     </div>
-</section>
-{% endfor %}
-<br> {% for posteo in posteos %}
-<br> {% for categoria in posteo.categorias.all%}
-<!-- se recorre un segundo bucle ya que el primero devuelve un queryset(por tratarse de una relacion) -->
-<br>
-<a href="{% url 'Categoria' categoria.id %}">
-    <h6 style="color:#ffffff">{{categoria.nombre}}</h6>
-    <br> {% endfor %}</a>
-<br>{% endfor %} {% endblock %}
+</header>
+<ul>
+    {% for categoria in categorias %}
+    <li style="display: inline; text-align: center;">
+        <a href="{% url 'Categoria' categoria.id %}">
+            <h6 style="color:#6b6b6b">{{categoria.nombre}}</h6>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5" style="margin-top:50px">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- Post preview-->
+            {% for posteo in posteos %}
+            <div class="post-preview">
+                <a href="{% url 'Post' posteo.slug %}">
+                    <h2 class="post-title">{{posteo.titulo}}</h2>
+                    <h5 class="post-subtitle">{{posteo.descripcion}}</h5>
+                </a>
+                <p class="post-meta">
+                    Creado por
+                    <a href="#!">{{posteo.autor}}</a> Subido el {{posteo.created}}
+                </p>
+            </div>
+
+            <!-- Divider-->
+            <hr class="my-4" /> {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
