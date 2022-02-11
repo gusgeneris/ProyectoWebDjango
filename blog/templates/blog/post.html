@@ -1,32 +1,33 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
 
-<h1 style="color:#ffffff">Blog</h1>
-
-<section class="page-section clearfix">
-    <div class="container">
-        <div class="intro">
-            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{posteo.imagen.url}}" alt="" style='width:50%'>
-            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-                <h2 class="section-heading mb-4">
-                    <span class="section-heading-lower">{{posteo.titulo}}</span>
-                    <p class="section-heading-upper">{{posteo.contenido | safe}}</p>
-                </h2>
-
-
-                <h6>
-                    <span class="section-heading">Autor: {{posteo.autor}}</span>
-                </h6>
-                <h6>
-                    <span class="section-heading">Fecha: {{posteo.created}}</span>
-                </h6>
+    {% extends 'base.html' %} {% load static %} {% block content %}
+    
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('{{posteo.imagen.url}}');background-size: cover; background-repeat: no-repeat;">
+        <div class="container position-relative px-4 px-lg-5" style="height: 400px">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading " style="margin-top:150px; color:white;">
+                        <h1 style=" color:white;">{{posteo.titulo}}</h1>
+                        <h2 class="subheading"style=" color: white ;">{{posteo.descripcion}}</h2>
+                        <span class="meta">
+                                    Creado por:
+                                    <a href="#!">{{posteo.autor}}</a>
+                                    el {{posteo.created}}
+                                </span>
+                    </div>
+                </div>
             </div>
-
         </div>
-    </div>
-</section>
-<br> {% for categoria in posteo.categorias.all%}
-<!-- se recorre un segundo bucle ya que el primero devuelve un queryset(por tratarse de una relacion) -->
-<br>
-<a href="{% url 'Categoria' categoria.id %}">
-    <h6 style="color:#ffffff">{{categoria.nombre}}</h6>
-    <br> {% endfor %}</a>{% endblock %}
+    </header>
+    <!-- Post Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7"  style="font-size:20px;margin-top:40px;">
+                    {{posteo.contenido | safe}}
+                    
+                </div>
+            </div>
+        </div>
+    </article>
+    {% endblock %}

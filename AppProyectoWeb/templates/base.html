@@ -120,7 +120,6 @@
                         <a href="{% url 'Blog' %}" class="nav-item nav-link {% if request.path|slice:':6' == '/blog/'  %} active {% endif %}">Blog</a>
                         <a href="{% url 'Servicios' %}" class="nav-item nav-link{% if request.path == '/servicios/' %} active {% endif %}">Servicios</a>
                         <a href="{% url 'Tienda' %}" class="nav-item nav-link  {% if request.path == '/tienda/' %} active {% endif %}">Tienda</a>
-                        <a href="{% url 'Contacto' %}" class="nav-item nav-link  {% if request.path == '/contacto/' %} active {% endif %}">Contacto</a>
                     </div>
                 </div>
                 <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Contacto</a>
